@@ -1,0 +1,32 @@
+body{
+    background-color: cadetblue;
+}
+
+main{
+    width: 90%;
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 auto;
+    gap: 1rem;
+    justify-content: center;
+    align-items: center;
+}
+
+.card{
+    box-shadow: 0 5px 5px -3px black;
+    transition: all;
+    transition-duration: 250ms;
+}
+
+.card:hover{
+    box-shadow: 0 5px 5px -1px black;
+    transform: scale(1.05);
+}
+
+form{
+    max-width: 500px;
+    margin: 0 auto 10px;
+    border: solid green 5px;
+    padding: 10px;
+    border-radius: 5%;
+}
