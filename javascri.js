@@ -120,31 +120,22 @@
 
 const mockApiURL = "https://62a42be947e6e400638d7100.mockapi.io/api/usuarios";
 
-async function getUsers() {
-  const response = await fetch(mockApiURL);
-  console.groupCollapsed();
-  console.log("Data sin procesar");
-  console.log(response);
-  console.groupEnd();
-
-  let data = await response.json();
-
-  console.groupCollapsed();
-  console.log("Data Procesada");
-  console.log(data);
-  console.groupEnd();
-  return data;
-}
-
-let newUserName = document.getElementById('newUserName');
-let newUserURL = document.getElementById('newUserURL');
-
-let newUserForm = document.getElementById('newUserForm');
 
 let cajaPrincipal = document.getElementById('cajaPrincipal');
+let newUserName = document.getElementById('newUserName');
+let newUserURL = document.getElementById('newUserURL');
+let newUserForm = document.getElementById('newUserForm');
+let newUserDescription = document.getElementById('newUserDescription');
+let newUserPrice = document.getElementById('newUserPrice');
 
 newUserForm.addEventListener('click',(e)=>{e.preventDefault();});
 
+async function getUsers() {
+  const response = await fetch(mockApiURL);
+  let data = await response.json();
+
+  return data;
+}
 
 // SUBO USUARIO 
 async function postUser(user)
@@ -180,7 +171,7 @@ function loadUsers(){
 
 usuarios.then((respuesta) => {
   respuesta.forEach((usuario) => {
-    createCards(usuario.nombre, usuario.foto, usuario.id);
+    createCards(usuario.nombre, usuario.foto, usuario.id, usuario.descripcion, usuario.precio);
   });
 });
 }
@@ -188,7 +179,9 @@ usuarios.then((respuesta) => {
 function createUser(){
   let newUser = {
     nombre : newUserName.value ,
-    foto : newUserURL.value
+    foto : newUserURL.value,
+    descripcion: newUserDescription.value,
+    precio: newUserPrice.value
   }
   return newUser;
 }
@@ -236,34 +229,28 @@ function btnDelete(id){
 
 //CREO TARJETA
 
-function createCards(name, avatar, id) {
+function createCards(name, avatar, id, Descripcion, precio) {
   let newCard = document.createElement("div");
   let img = document.createElement("img");
   let cardBody = document.createElement("div");
+  let descripcion = document.createElement("div");
+  let buttonPrice = document.createElement('button');
   let title = document.createElement("h5");
-  let button = document.createElement("button");
   let buttonEdit = document.createElement("button");
   let buttonDelete = document.createElement("button");
 
-
+  descripcion.className = 'p'
   newCard.className = "card";
   img.className = "card-img-top";
   cardBody.className = "card-body";
   title.className = "card-title";
-  button.className = "btn btn-primary";
+  buttonPrice.className = "btn btn-primary";
   buttonEdit.className = "btn btn-success";
   buttonDelete.className = "btn btn-danger";
-  button.textContent = "Ver más";
   buttonEdit.textContent = "Editar";
-  buttonDelete.textContent = "Borrar";
-
-
-  button.addEventListener("click", () => {
-    let singleUser = getUsersById(id);
-    singleUser.then((usuario) => {
-      createCards(usuario.nombre, usuario.foto, usuario.id);
-    });
-  });
+  buttonDelete.textContent = "Borrar"; 
+  buttonPrice.textContent = precio;
+  descripcion.textContent = Descripcion;
 
   buttonEdit.addEventListener("click", () => {
     editUser(id);
@@ -276,19 +263,14 @@ function createCards(name, avatar, id) {
   title.append(name);
   img.setAttribute("src", avatar);
   cardBody.append(title);
-  cardBody.append(button);
+  cardBody.append(descripcion);
+  cardBody.append(buttonPrice);
   cardBody.append(buttonEdit);
   cardBody.append(buttonDelete);
   newCard.append(img);
   newCard.append(cardBody);
   document.getElementById("cajaPrincipal").append(newCard);
   return newCard;
-}
-
-async function getUsersById(id) {
-  const response = await fetch(mockApiURL + "/" + id);
-  let data = await response.json();
-  return data;
 }
 
 // carga inicial
