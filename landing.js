@@ -1,8 +1,13 @@
 const mockApiURL = "https://62a42be947e6e400638d7100.mockapi.io/api/usuarios";
 
-let cajaPrincipal = document.getElementById("cajaPrincipal");
+const cajaPrincipal = document.getElementById("cajaPrincipal");
 const btnMenu = document.querySelector("#btnMenu");
 const menuList = document.querySelector("#menuList");
+const inputUser = document.getElementById("InputUser");
+const InputEmail = document.getElementById("InputEmail");
+const InputPassword = document.getElementById("InputPassword");
+const btnSubmit = document.getElementById("btnSubmit");
+
 btnMenu.addEventListener('click', () => menuList.classList.toggle("hidden-menu"));
 
 async function getUsers() {
@@ -57,3 +62,16 @@ function loadUsers() {
 }
 
 loadUsers();
+
+// const inputUser = document.getElementById("InputUser");
+// const InputEmail = document.getElementById("InputEmail");
+// const InputPassword = document.getElementById("InputPassword");
+// const btnSubmit = document.getElementById("btnSubmit");
+
+btnSubmit.addEventListener("click", (e)=>{
+  // e.preventDefault();
+  console.log('me hicite cli');
+  if (inputUser.value === "MessiD10S" && InputEmail.value === "leo10@gmail.com" && InputPassword.value === "maracana"){
+    window.location.replace("http://127.0.0.1:5500/admin.html");
+  }
+})

@@ -21,17 +21,16 @@
             <a href="#"> <img class="navbar-logo" src="./Logo.png" alt="logo"></a>
 
             <lu class="navbar-lu" id="menuList">
-                <li><a href="#">Categoria 1</a></li>
-                <li><a href="#">Categoria 2</a></li>
-                <li><a href="#">Categoria 3</a></li>
+                <li><a href="#">Inicio</a></li>
+                <li><a href="#">Contacto</a></li>
+                <li><a href="#">Nosotros</a></li>
             </lu>
 
             <div class="navbar-content-shop-user">
                 <span class="navbar-content-shop">
-                    <!-- ANEXO -->
-                    <i class="fa-solid fa-cart-shopping navbar-shop"></i> 
-                    <!-- ANEXO -->
-                    <div class="navbar-count">0</div>
+                    <a href="#" class="btn m-0 p-0" data-bs-toggle="modal" data-bs-target="#carrito">
+                      <i class="fa-solid fa-cart-shopping navbar-shop"></i>
+                    </a>
                 </span>
 
                 <span> 
@@ -45,7 +44,7 @@
     </header>
 
     <div class="modal fade" id="inicioSesion" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-      <div class="modal-dialog mx-auto">
+      <div class="modal-dialog mx-auto modal-sesion">
         <div class="modal-content">
           <div class="modal-header text-center">
             <h5 class="modal-title text-center mx-auto" id="staticBackdropLabel">The Last Comic</h5>
@@ -54,16 +53,16 @@
           <div class="modal-body">
             <form>
               <div class="mb-2">
-                <label for="exampleInputUser" class="form-label">Usuario </label>
-                <input type="email" class="form-control" id="exampleInputUser" aria-describedby="emailHelp">
+                <label for="InputUser" class="form-label">Usuario </label>
+                <input type="email" class="form-control" id="InputUser" aria-describedby="emailHelp">
               </div>
               <div class="mb-2">
-                <label for="exampleInputEmail1" class="form-label">Email </label>
-                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                <label for="InputEmail" class="form-label">Email </label>
+                <input type="email" class="form-control" id="InputEmail" aria-describedby="emailHelp">
               </div>
               <div class="mb-2">
-                <label for="exampleInputPassword1" class="form-label">Contraseña</label>
-                <input type="password" class="form-control" id="exampleInputPassword1">
+                <label for="InputPassword" class="form-label">Contraseña</label>
+                <input type="password" class="form-control" id="InputPassword">
               </div>
               <div class="mb-2 form-check">
                 <input type="checkbox" class="form-check-input" id="exampleCheck1">
@@ -72,7 +71,53 @@
             </form>
           </div>
           <div class="modal-footer">
-            <button type="submit" class="btn mx-auto">Iniciar Sesión</button>
+            <button id="btnSubmit" type="submit" class="btn mx-auto">Iniciar Sesión</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal fade" id="carrito" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+      <div class="modal-dialog mx-auto modal-carrito">
+        <div class="modal-content">
+          <div class="modal-header text-center">
+            <h5 class="modal-title text-center mx-auto" id="staticBackdropLabel">Carrito</h5>
+            <button type="button" class="btn-close mx-0 p-0" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th scope="col">#</th>
+                  <th scope="col">First</th>
+                  <th scope="col">Last</th>
+                  <th scope="col">Handle</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row">1</th>
+                  <td>Mark</td>
+                  <td>Otto</td>
+                  <td>@mdo</td>
+                </tr>
+                <tr>
+                  <th scope="row">2</th>
+                  <td>Jacob</td>
+                  <td>Thornton</td>
+                  <td>@fat</td>
+                </tr>
+                <tr>
+                  <th scope="row">3</th>
+                  <td colspan="2">Larry the Bird</td>
+                  <td>@twitter</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="modal-footer">
+            <button id="btnSubmit" type="submit" class="btn mx-auto">Comprar</button>
+            <button id="btnEmpty" type="submit" class="btn mx-auto">Vaciar</button>
           </div>
         </div>
       </div>
@@ -89,7 +134,7 @@
 
       <div
         id="cajaPrincipal"
-        class=" row row-cols-1 row-cols-md-2 row-cols-lg-5 gy-5">
+        class="row row-cols-1 row-cols-2 row-cols-lg-5 gy-5 ">
       
 
       </div>
