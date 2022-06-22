@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer">
+    <link rel="stylesheet" href="landing.css">
+    <title>Contacto</title>
+   
+
+</head>
+<body>
+    
+    <header>
+        <div class="name-shop">The Last Comic</div>
+        <nav class="navbar1">
+            <i class="fa-solid fa-bars togle-navbar" id="btnMenu"></i>
+            <a href="#"> <img class="navbar-logo" src="./Logo.png" alt="logo"></a>
+
+            <lu class="navbar-lu" id="menuList">
+                <li><a href="#">Inicio</a></li>
+                <li><a href="#">Contacto</a></li>
+                <li><a href="#">Nosotros</a></li>
+            </lu>
+
+            <div class="navbar-content-shop-user">
+                <span class="navbar-content-shop">
+                    <a href="#" class="btn m-0 p-0" data-bs-toggle="modal" data-bs-target="#carrito">
+                      <i class="fa-solid fa-cart-shopping navbar-shop"></i>
+                    </a>
+                </span>
+
+                <span> 
+                  <a href="#" class="btn m-0 p-0" data-bs-toggle="modal" data-bs-target="#inicioSesion">
+                    <i class="fa-solid fa-circle-user navbar-user"></i>
+                  </a>
+                  
+                </span>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="sec-contacto">
+           
+           <form class="form-contacto" action="">
+            <h2 class="h2-contacto">CONTACTO</h2>
+            <input class="in-contacto" type="text" name="name" placeholder="Nombre">
+            <input class="in-contacto" type="email" name="email" placeholder="Email">
+            <input class="in-contacto" type="number" name="phone" placeholder="Telefono">
+            <textarea class="text-contacto" name="message" id="" cols="30" rows="10" placeholder="Consulta"></textarea>
+            <input type="submit" class="boton" id="button" value="ENVIAR" >
+           </form>
+           <script type="text/javascript"
+  src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+
+<script type="text/javascript">
+  emailjs.init('LxHds9alROe3Uh6P6')
+</script>
+            
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-row">
+                <div class="footer-col">
+                    <h4>Nosotros</h4>
+                    <ul>
+                        <li><a href="#">Historia</a></li>
+                        <li><a href="#">Prensa</a></li>
+                        <li><a href="#">Sucursales</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Encontranos en:</h4>
+                    <ul>
+                        <li><a href="#"><i class="fas fa-map-marker-alt"></i> 3 de Febrero 1180, Rosario</a></li>
+                        <li><a href="#"><i class="fas fa-comment-alt"></i> 0341 2988136</a></li>
+                        <li><a href="#"><i class="fab fa-whatsapp"></i> 341 38415862</a></li>
+                        <li><a href="#"><i class="fas fa-envelope"></i> TheLastComic@gmail.com</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Seguinos:</h4>
+                    <div class="footer-social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <div class="copyright">
+        <p>2022 | TheLastComic</p>
+    </div>
+
+
+    
+    <!-- JavaScript Bundle with Popper -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+</body>
+<script>const btn = document.getElementById('button');
+
+    document.getElementById('form')
+     .addEventListener('submit', function(event) {
+       event.preventDefault();
+    
+       btn.value = 'Enviando...';
+    
+       const serviceID = 'default_service';
+       const templateID = 'template_gax22wl';
+    
+       emailjs.sendForm(serviceID, templateID, this)
+        .then(() => {
+          btn.value = 'ENVIAR';
+          alert('MENSAJE ENVIADO CORRECTAMENTE');
+        }, (err) => {
+          btn.value = 'ENVIAR MENSAJE';
+          alert(JSON.stringify(err));
+        });
+    });
+    </script>
+</html>

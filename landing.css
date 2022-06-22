@@ -93,6 +93,57 @@ body {
 .togle-navbar {
   display: none;
 }
+/*contacto*/
+.sec-contacto{
+background-size: 100uv 100vh;
+margin: 0;
+
+}
+.form-contacto{
+  width: 450px;
+  margin: auto;
+  background: rgba(0, 0, 0, 0.4);
+  padding: 10px 20px;
+  box-sizing: border-box;
+  margin-top: 20px;
+  border-radius: 7px;
+  max-width: 450px;
+}
+.h2-contacto{
+  color: #aacdbe;
+  text-align: center;
+  margin: 0;
+  font-size: 30px;
+  margin-bottom: 20px;
+}
+.in-contacto, .text-contacto {
+  width: 100%;
+  margin-bottom: 20px;
+  padding: 7px;
+  box-sizing: border-box;
+  font-size: 17px;
+  border: none;
+}
+.text-contacto{
+  min-height: 100px;
+  max-height: 200px;
+  max-width: 100%;  
+}
+#boton{
+  background: #aacdbe;
+  color: #f4f7c5 ;
+  border: none;
+  padding: 20px;
+  font-weight: bold;
+}
+#boton:hover{
+  cursor: pointer;
+}
+@media (max-width: 368px){
+  .form-contacto{
+  width: 100%;
+}
+}
 
 @media (max-width: 768px) {
   .name-shop {
@@ -178,6 +229,9 @@ body {
 
 ul {
   list-style: none;
+}
+.form-contacto{
+  width: 75%;
 }
 
 .footer {
